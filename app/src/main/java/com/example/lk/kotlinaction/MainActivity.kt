@@ -1,5 +1,6 @@
 package com.example.lk.kotlinaction
 import org.junit.Test
+import java.util.HashSet
 
 class MainActivity {
     /**
@@ -29,7 +30,6 @@ class MainActivity {
     fun whenTest() {
 
         System.out.print(getColor(EnumColor.BLUE))
-
         System.out.print("\n\r" + mix(EnumColor.YELLOW, EnumColor.RED))
         System.out.print("\n\r" + noParam(EnumColor.YELLOW, EnumColor.RED))
     }
@@ -38,7 +38,7 @@ class MainActivity {
      * 枚举和合并
      */
     fun getColor(enumColor: EnumColor): String {
-        var color: String = ""
+        var color = ""
         when (enumColor) {
             EnumColor.RED -> color = "red"
             EnumColor.GREEN -> color = "green"
@@ -74,6 +74,16 @@ class MainActivity {
 
         }
         return color
+
+    }
+
+
+    @Test
+    fun testBY() {
+        val inserSet = HashSet<Int>()
+        var cset = CountingSet<Int>(inserSet)
+        cset.addAll(listOf(1, 1, 2))
+        print("${cset.objectsAdded} add ${cset.size} remain")
 
     }
 }
